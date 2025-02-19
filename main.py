@@ -13,9 +13,9 @@ def check_websites():
             try:
                 response = requests.get(url, timeout=5)
                 status = response.status_code
-                log.write(f"{datetime.now().strftime("%d-%m-%Y %H:%M")} - URL: {url} - Status: {status}\n")
+                log.write(f"{datetime.now().strftime('%d-%m-%Y %H:%M')} - URL: {url} - Status: {status}\n")
             except Exception as e:
-                log.write(f"{datetime.now().strftime("%d-%m-%Y %H:%M")} - {url} - ERROR: {e}\n")
+                log.write(f"{datetime.now().strftime('%d-%m-%Y %H:%M')} - {url} - ERROR: {e}\n")
 
 def git_commit_and_push():
     """Commits and pushes the log file to GitHub."""
