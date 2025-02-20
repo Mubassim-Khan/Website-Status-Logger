@@ -21,7 +21,7 @@ def git_commit_and_push():
     """Commits and pushes the log file to GitHub."""
     try:
         subprocess.run(["git", "add", LOG_FILE], check=True)
-        subprocess.run(["git", "commit", "-m", f"Auto log update {datetime.now()}"], check=True)
+        subprocess.run(["git", "commit", "-m", f"[Auto Commit] - log update at {datetime.now().strftime('%H:%M:%s')}"], check=True)
         subprocess.run(["git", "push"], check=True)
         subprocess.run(["git", "push", "--set-upstream", "origin", "main"], check=True)
         print("Logs commited and pushed to GitHub.")
