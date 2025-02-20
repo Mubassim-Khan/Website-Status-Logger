@@ -1,4 +1,4 @@
-from lib.git import git_commit_and_push
+from lib.git_push import git_commit_and_push
 from lib.status_checker import check_websites
 import time
 
