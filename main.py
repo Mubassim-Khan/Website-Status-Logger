@@ -1,10 +1,15 @@
-from lib.git_push import git_commit_and_push
-from lib.status_checker import check_websites
-import time
+from flask import Flask, render_template
+import threading
+from background_logger import start_logging 
 
-COMMIT_INTERVAL = 120  # Wait for 2 minutes before running again
+app = Flask(__name__)
 
-while True:
-    check_websites()
-    git_commit_and_push()
-    time.sleep(COMMIT_INTERVAL) 
+# Start background logging in a separate thread
+threading.Thread(target=start_logging, daemon=True).start()
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=False)
