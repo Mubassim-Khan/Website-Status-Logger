@@ -1,12 +1,9 @@
 name: Auto Commit & Push Logs
 
 on:
-  workflow_run:
-    workflows: ["Auto Commit & Push Logs"]
-    types:
-      - completed
   schedule:
-    - cron: "*/1 * * * *"  # Runs every 5 minutes
+    - cron: "*/1 * * * *"  # Runs every minute
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   commit-and-push:
