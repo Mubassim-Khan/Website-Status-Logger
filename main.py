@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 import threading
 import json
-from background_logger import start_logging 
+from lib.background_logger import start_logging 
 
 app = Flask(__name__)
 

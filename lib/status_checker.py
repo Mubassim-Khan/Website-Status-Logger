@@ -1,4 +1,4 @@
-from web_urls import WEBSITES
+from lib.web_urls import WEBSITES
 import requests
 from datetime import datetime
 import json
