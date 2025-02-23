@@ -1,4 +1,4 @@
-from lib.git_push import git_commit_and_push
+# from lib.git_push import git_commit_and_push
 from lib.status_checker import check_websites
 import time
 import threading
@@ -11,5 +11,5 @@ def start_logging():
     while True:
         with log_lock:
             check_websites()
-            git_commit_and_push()
+            # git_commit_and_push()
         time.sleep(COMMIT_INTERVAL) 

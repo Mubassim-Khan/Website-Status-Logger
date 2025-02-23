@@ -1,0 +1,25 @@
+name: Auto Commit & Push Logs
+
+on:
+  push:
+    paths:
+      - 'statuses.json'
+      - 'website_status.log'  # Trigger when these files change
+
+jobs:
+  commit-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@github.com"
+
+      - name: Commit and Push Logs
+        run: |
+          git add website_status.log statuses.json
+          git diff --cached --exit-code || (git commit -m "[Auto Commit] Log update at $(date +'%Y-%m-%d %H:%M:%S')" && git push)
