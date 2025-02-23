@@ -4,9 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website Logger</title>
+    <style>
+      .status-ok {
+        color: green;
+        font-weight: bold;
+      }
+      .status-error {
+        color: orange;
+        font-weight: bold;
+      }
+      .status-down {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <h1>Website Logger Running in Background</h1>
     <p>Checking logs for updates</p>
+    <h2>Website Status Monitor</h2>
+    <table border="1">
+      <tr>
+        <th>Website</th>
+        <th>Status</th>
+        <th>Last Checked</th>
+      </tr>
+      {% for url, data in statuses.items() %}
+      <tr>
+        <td><a href="{{ url }}" target="_blank">{{ url }}</a></td>
+        <td
+          class="{% if data.status == 'OK' %}status-ok{% elif 'Error' in data.status %}status-error{% else %}status-down{% endif %}"
+        >
+          {{ data.status }}
+        </td>
+        <td>{{ data.last_checked }}</td>
+      </tr>
+      {% endfor %}
+    </table>
   </body>
 </html>
