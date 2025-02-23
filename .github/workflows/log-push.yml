@@ -1,10 +1,12 @@
 name: Auto Commit & Push Logs
 
 on:
-  push:
-    paths:
-      - 'statuses.json'
-      - 'website_status.log'  # Trigger when these files change
+  workflow_run:
+    workflows: ["Auto Commit & Push Logs"]
+    types:
+      - completed
+  schedule:
+    - cron: "*/1 * * * *"  # Runs every 5 minutes
 
 jobs:
   commit-and-push:
