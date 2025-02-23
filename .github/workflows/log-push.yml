@@ -1,9 +1,12 @@
 name: Auto Commit & Push Logs
 
 on:
+  push:
+    paths:
+      - 'website_status.log'
+      - 'statuses.json'  # Triggers when these files change
   schedule:
-    - cron: "*/1 * * * *"  # Runs every minute
-  workflow_dispatch:  # Allows manual triggering
+    - cron: "*/1 * * * *"  # Runs every minute (only for public repos or paid GitHub accounts)
 
 jobs:
   commit-and-push:
@@ -18,7 +21,12 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions@github.com"
 
-      - name: Commit and Push Logs
+      - name: Check for changes and commit
         run: |
           git add website_status.log statuses.json
-          git diff --cached --exit-code || (git commit -m "[Auto Commit] Log update at $(date +'%Y-%m-%d %H:%M:%S')" && git push)
+          if ! git diff --cached --quiet; then
+            git commit -m "[Auto Commit] Log update at $(date +'%Y-%m-%d %H:%M:%S')"
+            git push
+          else
+            echo "No changes detected, skipping commit."
+          fi
