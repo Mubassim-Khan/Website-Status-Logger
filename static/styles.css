@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+.status--ok {
+  color: green !important;
+  font-weight: bold !important;
+}
+
+.status-error {
+  color: orange !important;
+  font-weight: bold !important;
+}
+
+.status-down {
+  color: red !important;
+  font-weight: bold !important;
+}
+
+.status {
+  text-align: center;
+}
+
+.heading {
+  font-weight: 700;
+  font-size: 20px !important;
+}
+
+.table-heading {
+  font-size: 18px !important;
+  text-align: center;
+}
