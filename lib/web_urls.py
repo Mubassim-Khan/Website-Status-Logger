@@ -20,5 +20,14 @@ PERSONAL_PROJECTS = [
 
 SOCIAL_MEDIA = [
     "https://www.instagram.com/",
-    "https://www.facebook.com/"
+    "https://www.facebook.com/",
+    "https://www.x.com/",
+    "https://www.linkedin.com/",
+    "https://www.tiktok.com/",
+    "https://www.snapchat.com/",
+    "https://www.reddit.com/",
+    "https://www.pinterest.com/",
+    "https://www.threads.net/",
+    "https://www.youtube.com/",
+    "https://www.google.com/"
 ]
