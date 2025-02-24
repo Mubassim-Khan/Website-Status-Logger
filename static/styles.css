@@ -7,12 +7,12 @@
   font-weight: bold !important;
 }
 
-.status-error {
+.status--error {
   color: orange !important;
   font-weight: bold !important;
 }
 
-.status-down {
+.status--down {
   color: red !important;
   font-weight: bold !important;
 }

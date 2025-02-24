@@ -36,9 +36,24 @@
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere,
-              sit in! Facilis, dicta hic quis eum nihil tempora et at assumenda
-              quae delectus quisquam distinctio non aperiam quos velit commodi?
+              <table class="table table-secondary table-hover table-bordered">
+                <tr>
+                  <th class="table-heading" scope="col">Website</th>
+                  <th class="table-heading" scope="col">Status</th>
+                  <th class="table-heading" scope="col">Last Checked</th>
+                </tr>
+                {% for url, data in statuses.social_media.items() %}
+                <tr>
+                  <td><a href="{{ url }}" target="_blank">{{ url }}</a></td>
+                  <td
+                    class="{% if data.status == 'OK' %}status--ok{% elif 'Error' in data.status %}status--error{% else %}status--down{% endif %} status"
+                  >
+                    {{ data.status }}
+                  </td>
+                  <td class="status">{{ data.last_checked }}</td>
+                </tr>
+                {% endfor %}
+              </table>
             </div>
           </div>
         </div>
@@ -67,7 +82,7 @@
                   <th class="table-heading" scope="col">Status</th>
                   <th class="table-heading" scope="col">Last Checked</th>
                 </tr>
-                {% for url, data in statuses.items() %}
+                {% for url, data in statuses.projects.items() %}
                 <tr>
                   <td><a href="{{ url }}" target="_blank">{{ url }}</a></td>
                   <td
