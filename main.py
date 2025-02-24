@@ -1,22 +1,5 @@
-from flask import Flask, render_template
-import threading
-import json
-from lib.background_logger import start_logging 
+from lib.status_checker import check_websites
+# from lib.git_push import git_commit_and_push
 
-app = Flask(__name__)
-
-# Start background logging in a separate thread
-threading.Thread(target=start_logging, daemon=True).start()
-
-@app.route('/')
-def index():
-    try:
-        with open("statuses.json", "r") as file:
-            statuses = json.load(file)
-    except FileNotFoundError:
-        statuses = {}
-
-    return render_template('index.html', statuses = statuses)
-
-if __name__ == '__main__':
-    app.run(debug=False)
+check_websites()
+# git_commit_and_push()
