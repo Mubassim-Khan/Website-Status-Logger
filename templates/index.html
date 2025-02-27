@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Website Logger</title>
+    <title>Website Status Monitor</title>
     <link rel="stylesheet" href="../static/styles.css" />
     <!-- Bootstrap CSS Link -->
     <link
@@ -12,114 +12,96 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
   </head>
   <body>
-    <h2>Website Status Monitor</h2>
     <div class="container">
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button heading"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
+      <h2 class="main-heading">Website Status Monitor</h2>
+      <div class="container">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button heading"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Social Media Websites
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#accordionExample"
             >
-              Social Media Websites
-            </button>
-          </h2>
-          <div
-            id="collapseOne"
-            class="accordion-collapse collapse show"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              <table class="table table-secondary table-hover table-bordered">
-                <tr>
-                  <th class="table-heading" scope="col">Website</th>
-                  <th class="table-heading" scope="col">Status</th>
-                  <th class="table-heading" scope="col">Last Checked</th>
-                </tr>
-                {% for url, data in statuses.social_media.items() %}
-                <tr>
-                  <td><a href="{{ url }}" target="_blank">{{ url }}</a></td>
-                  <td
-                    class="{% if data.status == 'OK' %}status--ok{% elif 'Error' in data.status %}status--error{% else %}status--down{% endif %} status"
-                  >
-                    {{ data.status }}
-                  </td>
-                  <td class="status">{{ data.last_checked }}</td>
-                </tr>
-                {% endfor %}
-              </table>
+              <div class="accordion-body">
+                <table class="table table-secondary table-hover table-bordered">
+                  <tr>
+                    <th class="table-heading" scope="col">Website</th>
+                    <th class="table-heading" scope="col">Status</th>
+                    <th class="table-heading" scope="col">Last Checked</th>
+                  </tr>
+                  {% for url, data in statuses.social_media.items() %}
+                  <tr>
+                    <td><a href="{{ url }}" target="_blank">{{ url }}</a></td>
+                    <td
+                      class="{% if data.status == 'OK' %}status--ok{% elif 'Error' in data.status %}status--error{% else %}status--down{% endif %} status"
+                    >
+                      {{ data.status }}
+                    </td>
+                    <td class="status">{{ data.last_checked }}</td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button collapsed heading"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed heading"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                Personal Projects
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
             >
-              Personal Projects
-            </button>
-          </h2>
-          <div
-            id="collapseTwo"
-            class="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              <table class="table table-secondary table-hover table-bordered">
-                <tr>
-                  <th class="table-heading" scope="col">Website</th>
-                  <th class="table-heading" scope="col">Status</th>
-                  <th class="table-heading" scope="col">Last Checked</th>
-                </tr>
-                {% for url, data in statuses.projects.items() %}
-                <tr>
-                  <td><a href="{{ url }}" target="_blank">{{ url }}</a></td>
-                  <td
-                    class="{% if data.status == 'OK' %}status--ok{% elif 'Error' in data.status %}status--error{% else %}status--down{% endif %} status"
-                  >
-                    {{ data.status }}
-                  </td>
-                  <td class="status">{{ data.last_checked }}</td>
-                </tr>
-                {% endfor %}
-              </table>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button collapsed heading"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseThree"
-              aria-expanded="false"
-              aria-controls="collapseThree"
-            >
-              Accordion Item #3
-            </button>
-          </h2>
-          <div
-            id="collapseThree"
-            class="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est animi
-              distinctio odit quaerat aliquam totam optio soluta ipsa,
-              voluptatem consequatur placeat porro, ex consectetur odio nulla
-              magni libero iure sed?
+              <div class="accordion-body">
+                <table class="table table-secondary table-hover table-bordered">
+                  <tr>
+                    <th class="table-heading" scope="col">Website</th>
+                    <th class="table-heading" scope="col">Status</th>
+                    <th class="table-heading" scope="col">Last Checked</th>
+                  </tr>
+                  {% for url, data in statuses.projects.items() %}
+                  <tr>
+                    <td><a href="{{ url }}" target="_blank">{{ url }}</a></td>
+                    <td
+                      class="{% if data.status == 'OK' %}status--ok{% elif 'Error' in data.status %}status--error{% else %}status--down{% endif %} status"
+                    >
+                      {{ data.status }}
+                    </td>
+                    <td class="status">{{ data.last_checked }}</td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
             </div>
           </div>
         </div>
