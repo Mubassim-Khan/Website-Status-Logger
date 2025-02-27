@@ -16,6 +16,8 @@ PERSONAL_PROJECTS = [
     "https://netfflix-clone.netlify.app/",
     "https://m-dotcom.netlify.app/",
     "https://m-iphone-calculator.netlify.app/",
+    "https://blog-page-nine-kappa.vercel.app/",
+    "https://chatgpt-ai.streamlit.app/",
 ]
 
 SOCIAL_MEDIA = [
