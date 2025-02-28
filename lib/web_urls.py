@@ -1,5 +1,5 @@
-# List of websites to check
-WEBSITES = [
+# List of personal projects websites to check
+PERSONAL_PROJECTS = [
     "https://mubassim-khan.netlify.app",
     "https://mubassim.vercel.app",
     "https://grp-2.netlify.app/",
@@ -16,4 +16,20 @@ WEBSITES = [
     "https://netfflix-clone.netlify.app/",
     "https://m-dotcom.netlify.app/",
     "https://m-iphone-calculator.netlify.app/",
+    "https://blog-page-nine-kappa.vercel.app/",
+    "https://chatgpt-ai.streamlit.app/",
+]
+
+SOCIAL_MEDIA = [
+    "https://www.instagram.com/",
+    "https://www.facebook.com/",
+    "https://www.x.com/",
+    "https://www.linkedin.com/",
+    "https://www.tiktok.com/",
+    "https://www.snapchat.com/",
+    "https://www.reddit.com/",
+    "https://www.pinterest.com/",
+    "https://www.threads.net/",
+    "https://www.youtube.com/",
+    "https://www.google.com/"
 ]

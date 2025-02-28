@@ -9,7 +9,7 @@ def index():
         with open("statuses.json", "r") as file:
             statuses = json.load(file)
     except FileNotFoundError:
-            statuses = {}
+            statuses = {"projects": {}, "social_media": {}}
 
     return render_template('index.html', statuses = statuses) 
 

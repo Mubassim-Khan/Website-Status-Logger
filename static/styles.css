@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", serif !important;
+  padding: 5px !important;
+  margin: 2px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background-color: #fffdf0 !important;
+}
+
+.main-heading {
+  display: flex;
+  font-size: 35px;
+  margin: 20px;
+  padding: 20px;
+  font-weight: 600;
+  text-align: center;
+  justify-content: center;
+}
+
+.status--ok {
+  color: green !important;
+  font-weight: bold !important;
+}
+
+.status--error {
+  color: orange !important;
+  font-weight: bold !important;
+}
+
+.status--down {
+  color: red !important;
+  font-weight: bold !important;
+}
+
+.status {
+  text-align: center;
+}
+
+.heading {
+  font-weight: 700;
+  font-size: 20px !important;
+}
+
+.table-heading {
+  font-size: 18px !important;
+  text-align: center;
+  background-color: #adb5bda9 !important;
+}
+
+.table-heading :hover {
+  background-color: #adb5bd67 !important;
+}
