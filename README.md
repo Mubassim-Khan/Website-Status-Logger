@@ -83,7 +83,7 @@ pip install -r requirements.txt
 6. Run the project
 
 ```bash
-`streamlit run StreamlitApp.py` or `python -m streamlit run StreamlitApp.py`
+`python flask_app.py`
 ```
 ## <a name="license">License</a>
 
