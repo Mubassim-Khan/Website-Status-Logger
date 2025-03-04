@@ -1,6 +1,6 @@
 # Website Logger
 
-![Preview Image](https://github.com/Mubassim-Khan/Website-Logger/blob/main/templates/assets/Preview.png)
+![Preview Image](https://github.com/Mubassim-Khan/Website-Status-Logger/blob/main/api/templates/assets/Preview.png)
 
 <div align="center">
     <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue" alt="python" />
