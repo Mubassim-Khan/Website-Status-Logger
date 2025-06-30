@@ -83,7 +83,7 @@ pip install -r requirements.txt
 6. Run the project
 
 ```bash
-`python api/flask_app.py`
+`python -m api.flask_app`
 ```
 ## <a name="license">License</a>
 
