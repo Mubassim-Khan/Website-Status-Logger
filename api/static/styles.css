@@ -16,7 +16,7 @@ body {
 .main-heading {
   display: flex;
   font-size: 35px;
-  margin: 20px;
+  margin: 15px;
   padding: 20px;
   font-weight: 700;
   text-align: center;
@@ -90,4 +90,21 @@ a {
 
 .data-row {
   font-weight: 600 !important;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center horizontally */
+  font-size: 30px;
+  margin: 20px;
+  padding: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff !important;
+}
+
+.contact-heading {
+  font-size: 35px;
+  font-weight: 500;
 }
