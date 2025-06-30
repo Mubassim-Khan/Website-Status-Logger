@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website Status Monitor</title>
     <link rel="stylesheet" href="../static/styles.css" />
-    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
 
     <!-- Bootstrap CSS Link -->
     <link
@@ -15,16 +15,22 @@
       crossorigin="anonymous"
     />
     <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
       <h2 class="main-heading">Website Status Monitor</h2>
+      <p class="sub-heading">
+        The statuses are refreshed every 4 hours. Last refreshed:
+        <b>{{ last_refreshed }}</b>
+      </p>
       <div class="container">
+        <!-- Socail Media Table -->
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header">
@@ -45,14 +51,16 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                <table class="table table-secondary table-hover table-bordered">
+                <table class="table table-secondary table-bordered">
                   <tr>
-                    <th class="table-heading" scope="col">Website</th>
+                    <th class="table-heading" scope="col">Site Name</th>
+                    <th class="table-heading" scope="col">URL</th>
                     <th class="table-heading" scope="col">Status</th>
                     <th class="table-heading" scope="col">Last Checked</th>
                   </tr>
                   {% for url, data in statuses.social_media.items() %}
-                  <tr>
+                  <tr class="data-row">
+                    <td class="site-name">{{ data.name }}</td>
                     <td><a href="{{ url }}" target="_blank">{{ url }}</a></td>
                     <td
                       class="{% if data.status == 'OK' %}status--ok{% elif 'Error' in data.status %}status--error{% else %}status--down{% endif %} status"
@@ -66,6 +74,7 @@
               </div>
             </div>
           </div>
+          <!-- Personal Projects table -->
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button
@@ -85,14 +94,16 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                <table class="table table-secondary table-hover table-bordered">
+                <table class="table table-secondary table-bordered">
                   <tr>
-                    <th class="table-heading" scope="col">Website</th>
+                    <th class="table-heading" scope="col">Site Name</th>
+                    <th class="table-heading" scope="col">URL</th>
                     <th class="table-heading" scope="col">Status</th>
                     <th class="table-heading" scope="col">Last Checked</th>
                   </tr>
                   {% for url, data in statuses.projects.items() %}
-                  <tr>
+                  <tr class="data-row">
+                    <td class="site-name">{{ data.name }}</td>
                     <td><a href="{{ url }}" target="_blank">{{ url }}</a></td>
                     <td
                       class="{% if data.status == 'OK' %}status--ok{% elif 'Error' in data.status %}status--error{% else %}status--down{% endif %} status"
