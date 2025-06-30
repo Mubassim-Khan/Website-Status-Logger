@@ -27,8 +27,13 @@
       <h2 class="main-heading">Website Status Monitor</h2>
       <p class="sub-heading">
         The statuses are refreshed every 4 hours. Last refreshed:
-        <b>{{ last_refreshed }}</b>
+        <b id="last-refreshed">{{ last_refreshed }}</b>
+        <button id="refresh-btn" class="btn btn-primary btn-sm ms-3">
+          Refresh Status
+        </button>
       </p>
+      <!-- Place this near your refresh button in index.html -->
+      <div id="fetching-status-message"> Fetching data... Please Wait </div>
       <div class="container">
         <!-- Socail Media Table -->
         <div class="accordion" id="accordionExample">
@@ -51,7 +56,10 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                <table class="table table-secondary table-bordered">
+                <table
+                  id="social-media-table"
+                  class="table table-secondary table-bordered"
+                >
                   <tr>
                     <th class="table-heading" scope="col">Site Name</th>
                     <th class="table-heading" scope="col">URL</th>
@@ -94,7 +102,10 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                <table class="table table-secondary table-bordered">
+                <table
+                  id="projects-table"
+                  class="table table-secondary table-bordered"
+                >
                   <tr>
                     <th class="table-heading" scope="col">Site Name</th>
                     <th class="table-heading" scope="col">URL</th>
@@ -127,5 +138,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>

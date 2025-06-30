@@ -9,7 +9,7 @@ body {
   justify-content: center !important;
   align-items: center !important;
   color: #fff !important;
-  background-color: #010409 !important; 
+  background-color: #010409 !important;
   /* #121212 */
 }
 
@@ -18,17 +18,31 @@ body {
   font-size: 35px;
   margin: 20px;
   padding: 20px;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   justify-content: center;
 }
 
 .sub-heading {
+  text-decoration: underline;
   font-weight: 500;
   font-size: 20px;
   margin-bottom: 10px;
   text-align: center;
   justify-content: center;
+}
+
+#fetching-status-message {
+  font-weight: 500;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: #007bff !important;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .status--ok {
