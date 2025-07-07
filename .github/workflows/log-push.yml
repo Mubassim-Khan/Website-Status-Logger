@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 */4 * * *"  # Runs every 4th hour
+    - cron: "0 */12 * * *"  # Runs every 12th hour (Twice a day)
 
 jobs:
   commit-and-push:
